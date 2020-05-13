@@ -1,18 +1,39 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <v-tabs centered>
+      <v-tab
+        v-for="tab in tabs"
+        :key="tab.name"
+        :to="{ name: tab.name }"
+        exact
+      >
+        {{ tab.name }}
+      </v-tab>
+    </v-tabs>
+    <router-view />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import DemoChart from '../components/DemoChart'
+  import DemoMaps from '../components/DemoMaps'
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  export default {
+    data: () => ({
+      tabs: [
+        {
+          path: '',
+          name: 'Chart',
+          component: DemoChart
+        },
+        {
+          path: 'leaflet',
+          name: 'Leaflet',
+          component: DemoMaps
+        }
+      ]
+    })
   }
-}
 </script>
+<style scoped>
+</style>
