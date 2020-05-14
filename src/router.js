@@ -25,6 +25,11 @@ export default new Router({
           component: DemoMaps
         }
       ]
+    },
+    {
+      path: '*',
+      name: '',
+      redirect: '/'
     }
   ]
 })
