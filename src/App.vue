@@ -29,9 +29,6 @@ export default {
 };
 </script>
 <style scoped>
-html {
-  overflow-y: auto !important;
-}
 #content {
   margin: 0 auto;
 }
